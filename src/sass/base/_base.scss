@@ -1,0 +1,26 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --clr-white: hsla(0, 0%, 100%, 1);
+  --clr-papaya-whip: hsla(41, 100%, 93%, 1);
+  --clr-gray: hsla(240, 5%, 84%, 1);
+  --clr-light-gray: hsla(0, 0%, 96%, 1);
+  --clr-green: hsla(166, 63%, 48%, 1);
+  --clr-red: hsla(0, 79%, 63%, 1);
+  --clr-blue: hsla(248, 80%, 58%, 1);
+  --gainsboro: hsla(0, 0%, 85%, 1);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
