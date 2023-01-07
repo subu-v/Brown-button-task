@@ -1,7 +1,39 @@
-@mixin flex($direction,$justify-content,$align-items,$gap){
-    display:flex;
-    flex-direction:$direction;
-    justify-content:$justify-content;
-    align-items:$align-items;
-    gap:$gap;
+@mixin flex($direction, $justify-content, $align-items, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
+}
+
+@mixin media-query($breakpoint) {
+  @if ($breakpoint == tablet-landscape) {
+    @media (max-width: 84em) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == tablet-portrait) {
+    @media (max-width: 62em) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == tablet-portrait-768px) {
+    @media (max-width: 48em) {
+        @content;
+    }
+  }
+
+  @if($breakpoint == tablet-portrait-600px){
+    @media (max-width:37.5em) {
+        @content;
+    }
+  }
+
+  @if ($breakpoint == phone){
+    @media(max-width:25em){
+        @content;
+    }
+  }
 }

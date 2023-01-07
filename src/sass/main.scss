@@ -4,52 +4,124 @@
 .page {
   padding: 2.4rem 4.8rem;
   @include flex(column, center, center, 0);
-  width: 100vw;
+
+  @include media-query(phone) {
+    padding: 2.4rem;
+  }
 }
 
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 3.2rem;
-  width: 150rem;
+  max-width: 150rem;
+  margin-bottom: 4.8rem;
+
+  @include media-query(tablet-portrait) {
+    margin-bottom: 8rem;
+  }
+
+  @include media-query(tablet-portrait-600px) {
+    grid-template-columns: 1fr;
+    padding: 3.2rem;
+    justify-items: center;
+  }
 
   &__hero-img {
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
+
+    @include media-query(tablet-portrait-600px) {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__header {
     width: 90%;
     padding-top: 2.4rem;
+
+    @include media-query(tablet-landscape) {
+      justify-self: end;
+    }
+
+    @include media-query(tablet-portrait-600px) {
+      padding: 0;
+      margin-bottom: 3rem;
+      text-align: center;
+      justify-self: center;
+    }
+
+    @include media-query(phone) {
+      width: 100%;
+    }
   }
 
   &__primary-heading {
     font-size: 4.4rem;
     margin-bottom: 1.6rem;
+
+    @include media-query(tablet-landscape) {
+      font-size: 3.6rem;
+    }
+
+    @include media-query(phone) {
+      font-size: 5.4rem;
+      margin-bottom: 2.4rem;
+    }
   }
 
   &__desc {
     font-size: 1.8rem;
     width: 90%;
-    margin-bottom: 2.4rem;
+    margin-bottom: 4.8rem;
 
-    &--link:link,
-    &--link:visited {
-      color: var(--clr-red);
-      text-decoration: none;
-      margin-right: 1rem;
+    @include media-query(tablet-portrait-600px) {
+      width: 100%;
+    }
+
+    @include media-query(phone) {
+      font-size: 3rem;
+    }
+
+    &--link {
+      &:link,
+      &:visited {
+        color: var(--clr-red);
+        text-decoration: none;
+        margin-right: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      &:hover,
+      &:active {
+        color: var(--clr-red-dark);
+      }
     }
 
     &--img {
       width: 2.4rem;
       height: 2.4rem;
       transform: translateY(7px);
+
+      @include media-query(tablet-landscape) {
+        transform: translateY(5px);
+      }
+
+      @include media-query(phone) {
+        transform: translateY(2px);
+      }
     }
   }
 
   &__enroll {
     position: relative;
     margin-bottom: 1.8rem;
+
+    @include media-query(tablet-portrait-600px) {
+      margin-bottom: 2.4rem;
+    }
+
     &--input {
       font-family: inherit;
       padding: 2.4rem 0.9rem;
@@ -57,52 +129,127 @@
       border: 3px solid black;
       width: 90%;
 
+      @include media-query(tablet-portrait-600px) {
+        padding: 2.4rem 1.6rem;
+      }
+
       &::placeholder {
         font-size: 1.6rem;
+
+        @include media-query(phone) {
+          font-size: 1.8rem;
+        }
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--clr-red);
       }
     }
 
     &--sumbit {
+      background-color: var(--clr-red);
+      border: none;
+      border-radius: 5px;
+      color: white;
+
+      font-size: 1.4rem;
+      font-family: inherit;
+      font-weight: 500;
+
+      padding: 1.6rem 4.8rem;
+
       position: absolute;
       top: 1rem;
       right: 7.5rem;
 
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.4rem;
-      font-family: inherit;
-      font-weight: 500;
-      padding: 1.6rem 4.8rem;
-      background-color: var(--clr-red);
+      transition: all 0.3s ease;
+
+      @include media-query(tablet-landscape) {
+        top: 1.2rem;
+      }
+
+      @include media-query(tablet-portrait) {
+        right: 6rem;
+      }
+
+      @include media-query(tablet-portrait-600px) {
+        top: 1.6rem;
+        right: 5rem;
+      }
+
+      @include media-query(phone) {
+        top: 1.8rem;
+        font-size: 1.6rem;
+      }
+
+      &:hover {
+        background-color: var(--clr-red-dark);
+      }
     }
   }
 
   &__sign-in {
     @include flex(row, initial, center, 1.8rem);
+
+    @include media-query(tablet-portrait-600px) {
+      justify-content: center;
+    }
+
     &--img {
       width: 2.4rem;
       height: 2.4rem;
     }
 
-    &--desc:link,
-    &--desc:visited {
-      color: #1e88e5;
-      text-decoration: none;
-      font-size: 1.6rem;
+    &--desc {
+      &:link,
+      &:visited {
+        color: var(--clr-blue-light);
+        text-decoration: none;
+        font-size: 1.6rem;
+        transition: color 0.3s ease;
+
+        @include media-query(tablet-portrait-600px) {
+          font-size: 2.4rem;
+        }
+      }
+      &:hover,
+      &:active {
+        color: var(--clr-blue-dark);
+      }
     }
   }
 }
 
 .featured {
-  width: 100vw;
   background-color: var(--clr-light-gray);
-  text-align: center;
+  width: 100vw;
   padding: 4.8rem 8rem 2.4rem;
+  text-align: center;
 
+  @include media-query(tablet-portrait-600px) {
+    padding: 8rem 8rem 3.6rem;
+  }
+
+  @include media-query(phone) {
+    padding: 8rem 4.8rem 3.6rem;
+  }
   &__heading {
     font-size: 3.2rem;
     margin-bottom: 2.4rem;
+
+    @include media-query(tablet-landscape) {
+      font-size: 2.8rem;
+    }
+
+    @include media-query(tablet-portrait) {
+      font-size: 2.6rem;
+    }
+
+    @include media-query(phone) {
+      font-size: 4.8rem;
+      margin-bottom: 3rem;
+    }
   }
 
   &__logo-container {
@@ -111,24 +258,58 @@
     align-items: center;
     justify-items: center;
     justify-content: center;
+
+    @include media-query(tablet-landscape) {
+      grid-template-columns: repeat(6, 15%);
+    }
+
+    @include media-query(tablet-portrait) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media-query(phone) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__img {
     width: 14rem;
+
+    @include media-query(tablet-portrait-600px) {
+      width: 16rem;
+    }
+
+    @include media-query(phone) {
+      width: 20rem;
+    }
   }
 }
 
 .accordion {
+  @include flex(column, center, center, 0);
   background-color: var(--clr-blue);
   color: var(--clr-white);
-  width: 100vw;
   padding: 8rem;
-  @include flex(column, center, center, 0);
+  width: 100vw;
 
+  @include media-query(phone) {
+    padding: 8rem 4.8rem 8rem;
+  }
   &__heading {
     font-size: 4rem;
+    margin-bottom: 8rem;
     text-align: center;
-    margin-bottom: 4.8rem;
+    @include media-query(tablet-landscape) {
+      font-size: 3.6rem;
+    }
+
+    @include media-query(tablet-portrait) {
+      font-size: 3.2rem;
+    }
+
+    @include media-query(phone) {
+      font-size: 4.8rem;
+    }
   }
 
   &__container {
@@ -137,12 +318,21 @@
     justify-items: center;
     justify-content: center;
     column-gap: 2.4rem;
-    width: 115rem;
+    max-width: 115rem;
+
+    @include media-query(tablet-portrait-600px) {
+      grid-template-columns: 1fr;
+      row-gap: 4.8rem;
+    }
   }
 
   &__content-container {
     &:first-child {
       border-top: 2px solid var(--clr-white);
+    }
+
+    @include media-query(tablet-portrait-600px) {
+      @include flex(column, center, center, 0);
     }
   }
 
@@ -150,18 +340,48 @@
     border-bottom: 2px solid var(--clr-white);
     padding: 2.4rem 0;
 
+    @include media-query(tablet-portrait-600px) {
+      padding: 4rem 0;
+    }
+
     &--heading {
       @include flex(row, space-between, baseline, 0);
+      cursor: pointer;
       font-size: 3.2rem;
       font-weight: 500;
       margin-bottom: 1.6rem;
-      cursor: pointer;
+
+      @include media-query(tablet-landscape) {
+        font-size: 2.8rem;
+        gap: 2.4rem;
+      }
+      @include media-query(tablet-portrait) {
+        font-size: 2.4rem;
+      }
+
+      @include media-query(tablet-portrait-600px) {
+        font-size: 2.8rem;
+      }
+
+      @include media-query(phone) {
+        font-size: 3.6rem;
+      }
     }
 
     &--toggle {
       width: 2rem;
       height: 2rem;
       transition: 0.3s ease;
+
+      @include media-query(tablet-portrait-600px) {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      @include media-query(phone) {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
     }
 
     &--desc {
@@ -170,10 +390,22 @@
       overflow: hidden;
       overflow-y: auto;
       transition: 0.3s ease;
+
+      @include media-query(tablet-portrait-600px) {
+        font-size: 2rem;
+      }
+
+      @include media-query(phone) {
+        font-size: 2.4rem;
+      }
     }
 
     &--active &--desc {
       height: 9rem;
+
+      @include media-query(phone) {
+        height: 14rem;
+      }
     }
 
     &--active &--toggle {
@@ -186,17 +418,30 @@
       color: var(--clr-red);
       text-decoration: none;
       margin-right: 1rem;
+
+      @include media-query(tablet-portrait-600px) {
+        font-size: 2rem;
+      }
+
+      @include media-query(phone) {
+        font-size: 2.4rem;
+      }
     }
 
     &--img {
       width: 2.4rem;
       height: 2.4rem;
       transform: translateY(7px);
+
+      @include media-query(phone) {
+        transform: translateY(3px);
+      }
     }
   }
 
   &__trial-button {
     color: white;
+    cursor: pointer;
 
     background-color: var(--clr-red);
     border: none;
@@ -207,20 +452,45 @@
     font-weight: 500;
     margin-top: 4rem;
     padding: 1.6rem 4.8rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--clr-red-dark);
+    }
+
+    @include media-query(tablet-portrait-600px) {
+      font-size: 2rem;
+    }
+
+    @include media-query(phone) {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__img {
+    width: 100%;
   }
 }
 
 .traits {
-  padding: 8rem;
   @include flex(column, center, center, 0);
+  padding: 8rem;
 
   &__heading {
     font-size: 4rem;
     margin-bottom: 2.4rem;
+
+    @include media-query(tablet-portrait-600px) {
+      text-align: center;
+    }
+    @include media-query(phone) {
+      font-size: 4.8rem;
+    }
   }
 
   &__button {
     color: white;
+    cursor: pointer;
 
     background-color: var(--clr-red);
     border: none;
@@ -232,6 +502,20 @@
 
     padding: 1.6rem 3.2rem;
     margin-bottom: 4.8rem;
+    transition: all 0.3s ease;
+
+    @include media-query(tablet-portrait-600px) {
+      font-size: 2rem;
+    }
+
+    @include media-query(phone) {
+      font-size: 2.4rem;
+      margin-bottom: 6.2rem;
+    }
+
+    &:hover {
+      background-color: var(--clr-red-dark);
+    }
   }
 
   &__table-container {
@@ -240,6 +524,23 @@
     column-gap: 2.4rem;
     margin-bottom: 4.8rem;
     width: 115rem;
+
+    @include media-query(tablet-portrait) {
+      width: 75rem;
+      grid-template-columns: 1fr;
+      row-gap: 3.2rem;
+    }
+
+    @include media-query(tablet-portrait-600px) {
+      margin-bottom: 8rem;
+      width: 60rem;
+      text-align: center;
+    }
+
+    @include media-query(phone) {
+      width: 50rem;
+      row-gap: 6.2rem;
+    }
   }
 
   &__table {
@@ -254,6 +555,14 @@
       border: 1px solid black;
       font-size: 2rem;
       padding: 1.6rem;
+
+      @include media-query(tablet-portrait-600px) {
+        font-size: 2.6rem;
+      }
+
+      @include media-query(phone) {
+        font-size: 3rem;
+      }
     }
 
     &--gray {
@@ -269,6 +578,14 @@
       border: 1px solid black;
       padding: 2.4rem 3.2rem;
       font-size: 1.6rem;
+
+      @include media-query(tablet-portrait-600px) {
+        font-size: 2rem;
+      }
+
+      @include media-query(phone) {
+        font-size: 2.4rem;
+      }
     }
   }
 
@@ -285,33 +602,76 @@
       border-radius: 50%;
       background-color: #f4f4f4ff;
       z-index: -1;
+
+      @include media-query(tablet-portrait-600px) {
+        width: 12rem;
+        height: 12rem;
+        top: -2rem;
+        left: -2rem;
+      }
     }
   }
 
   &__img {
     width: 4.8rem;
     height: 4.8rem;
+    transition: all 0.3s ease;
+
+    @include media-query(tablet-portrait-600px) {
+      width: 8rem;
+      height: 8rem;
+    }
+    &:hover {
+      transform: scale(1.15);
+    }
   }
 }
 
 .services {
   padding: 2.4rem 4.8rem;
+  margin-bottom: 6.4rem;
+
+  @include media-query(tablet-portrait) {
+    text-align: center;
+  }
+
   &__container {
     display: grid;
     grid-template-columns: 0.75fr 1.25fr;
     column-gap: 4.8rem;
     width: 115rem;
-  }
 
+    @include media-query(tablet-portrait) {
+      width: 75rem;
+      grid-template-columns: 1fr;
+      row-gap: 4.8rem;
+    }
+
+    @include media-query(phone) {
+      width: 55rem;
+    }
+  }
 
   &__heading {
     font-size: 4rem;
     margin-bottom: 2rem;
-  }
 
+    @include media-query(phone) {
+      font-size: 4.8rem;
+    }
+  }
   &__desc {
     font-size: 1.6rem;
     padding-right: 8rem;
+
+    @include media-query(tablet-portrait) {
+      padding: 0;
+      font-size: 2rem;
+    }
+
+    @include media-query(phone) {
+      font-size: 3.2rem;
+    }
   }
 
   &__content-container {
@@ -328,39 +688,194 @@
     column-gap: 4.8rem;
 
     text-align: center;
+
+    @include media-query(tablet-portrait) {
+      padding: 3.2rem 6.4rem;
+    }
+
+    @include media-query(tablet-portrait-600px) {
+      column-gap: 3.2rem;
+      padding: 3.2rem 4.8rem;
+    }
+
+    @include media-query(phone) {
+      grid-template-columns: 1fr;
+      row-gap: 2.4rem;
+    }
   }
 
   &__content {
     @include flex(column, initial, center, 0rem);
-    padding:0 1.2rem;
+    padding: 0 1.2rem;
 
     &--img {
       width: 12rem;
       height: 12rem;
       margin-bottom: 1.6rem;
+
+      @include media-query(phone) {
+        width: 16rem;
+        height: 16rem;
+      }
     }
 
     &--desc {
       font-size: 2rem;
       color: var(--clr-white);
-      margin-bottom:2.4rem;
+      margin-bottom: 2.4rem;
+
+      @include media-query(phone) {
+        font-size: 3.2rem;
+      }
     }
   }
-  &__link:link,
-  &__link:visited {
-    @include flex(row, center, center, 0.6rem);
-    color: var(--clr-white);
-    padding: 1.4rem 1.8rem;
-    background-color: black;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-top:auto;
+  &__link {
+    &:link,
+    &:visited {
+      @include flex(row, center, center, 0.6rem);
+      color: var(--clr-white);
+      padding: 1.4rem 1.8rem;
+      background-color: var(--clr-purple-dark);
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: auto;
+      transition: all 0.3s ease;
+
+      @include media-query(tablet-portrait-600px) {
+        font-size: 1.6rem;
+      }
+
+      @include media-query(phone) {
+        font-size: 2.4rem;
+        padding: 1.8rem 3.6rem;
+      }
+    }
+    &:hover {
+      background-color: var(--clr-purple-tint);
+    }
   }
 
   &__link-icon {
     width: 2.4rem;
     height: 2.4rem;
+  }
+}
+
+.action {
+  background-color: var(--clr-light-yellow);
+  border-radius: 20px;
+  width: 140rem;
+  text-align: center;
+
+  @include media-query(tablet-portrait) {
+    width: 100rem;
+  }
+
+  @include media-query(tablet-portrait-600px) {
+    width: 75rem;
+  }
+
+  @include media-query(phone) {
+    width: 60rem;
+  }
+
+  &__content {
+    padding: 4.8rem 6.4rem;
+
+    @include media-query(phone) {
+    }
+
+    &--heading {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+
+      @include media-query(phone) {
+        font-size: 4.8rem;
+      }
+    }
+    &--sub-heading {
+      font-size: 1.9rem;
+      margin-bottom: 1.8rem;
+
+      @include media-query(tablet-portrait) {
+        font-size: 2.4rem;
+      }
+
+      @include media-query(phone) {
+        font-size: 3rem;
+        margin-bottom: 4.8rem;
+      }
+    }
+    &--desc,
+    &--sub-desc {
+      font-weight: 500;
+      font-size: 1.4rem;
+      @include media-query(tablet-portrait) {
+        font-size: 1.8rem;
+      }
+
+      @include media-query(phone) {
+        font-size: 2.6rem;
+      }
+    }
+    &--desc {
+      padding: 0 20rem;
+      margin-bottom: 2.4rem;
+
+      @include media-query(tablet-portrait) {
+        padding: 0;
+      }
+    }
+    &--sub-desc {
+      margin-bottom: 4.8rem;
+
+      @include media-query(phone) {
+        margin-bottom: 6.4rem;
+      }
+    }
+
+    &--button {
+      &:link,
+      &:visited {
+        border-radius: 5px;
+        text-decoration: none;
+        color: var(--clr-white);
+        background-color: var(--clr-red);
+        padding: 1.2rem 2rem;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+
+        @include media-query(tablet-portrait) {
+          font-size: 1.6rem;
+          padding: 1.8rem 3.2rem;
+        }
+      }
+      &:hover {
+        background-color: var(--clr-red-dark);
+      }
+    }
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: flex-end;
+
+    &--item1 {
+      transform: translate(-10px, 22px);
+
+      @include media-query(tablet-portrait) {
+        transform: translate(-6px, 13px);
+      }
+
+      @include media-query(tablet-portrait-600px) {
+        transform: translate(-3px, 7px);
+      }
+    }
+    &--img {
+      width: 100%;
+    }
   }
 }

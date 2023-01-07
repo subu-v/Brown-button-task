@@ -1,3 +1,4 @@
+@use "abstracts" as *;
 *,
 ::before,
 ::after {
@@ -7,17 +8,35 @@
 }
 :root {
   --clr-white: hsla(0, 0%, 100%, 1);
-  --clr-papaya-whip: hsla(41, 100%, 93%, 1);
+  --clr-light-yellow: hsla(41, 100%, 93%, 1);
   --clr-gray: hsla(240, 5%, 84%, 1);
   --clr-light-gray: hsla(0, 0%, 96%, 1);
   --clr-green: hsla(166, 63%, 48%, 1);
   --clr-red: hsla(0, 79%, 63%, 1);
+  --clr-red-dark: hsl(0, 61%, 57%);
   --clr-blue: hsla(248, 80%, 58%, 1);
-  --gainsboro: hsla(0, 0%, 85%, 1);
+  --clr-blue-light: hsl(208, 79%, 51%);
+  --clr-blue-dark: hsl(208, 76%, 41%);
+  --clr-purple-dark: hsl(250, 51%, 12%);
+  --clr-purple-tint: hsl(251, 26%, 21%);
 }
 
 html {
   font-size: 62.5%;
+  @include media-query(tablet-landscape) {
+    font-size: 56.25%;
+  }
+
+  @include media-query(tablet-portrait){
+    font-size:50%;
+  }
+
+  @include media-query(tablet-portrait-768px){
+    font-size:43.75%;
+  }
+  @include media-query(phone){
+    font-size:37.5%;
+  }
 }
 
 body {
